@@ -1,0 +1,19 @@
+{
+  "name": "greenit-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/greenituy/web-app",
+  "author": "Juan Colo <juan@genuinebee.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts" : {
+    "web": "yarn workspace greenit-web-app dev",
+    "lint": "yarn workspace greenit-web-app lint",
+    "dev:ext:firefox": "yarn workspace greenit-extension dev:firefox",
+    "dev:ext": "yarn workspace greenit-extension dev",
+    "build:ext": "yarn workspace greenit-extension build"
+  }
+}
