@@ -14,7 +14,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
           
-  lint: 
+  lint-ext: 
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: '16.x'
     - run: yarn install --frozen-lockfile
-    - run: yarn lint
+    - run: yarn lint:ext
 
   build:
     runs-on: ubuntu-22.04
