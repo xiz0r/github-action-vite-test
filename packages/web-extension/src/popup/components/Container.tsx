@@ -23,7 +23,7 @@ const darkTheme = createTheme({
   }
 })
 
-function GContainer ({ children }: Props) {
+function GContainer ({ children }: Props): React.ReactElement {
   return (
     <ThemeProvider theme={darkTheme}>
       <Container component='main' disableGutters={false}>

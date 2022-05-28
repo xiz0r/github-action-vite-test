@@ -25,7 +25,7 @@ const darkTheme = createTheme({
   }
 })
 
-function Popup () {
+function Popup (): React.ReactElement {
   // const [data, setData] = React.useState([])
   // const [isLoading, setIsLoading] = React.useState(true)
 
