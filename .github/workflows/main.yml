@@ -45,7 +45,7 @@ jobs:
     #     path: packages/web-extension/dist
 
   test:
-    needs: [lint, build]
+    needs: [lint-ext, build]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
