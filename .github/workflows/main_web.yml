@@ -1,4 +1,4 @@
-name: Deployment pipeline
+name: Deployment pipeline web
 
 on: 
   push:
@@ -16,7 +16,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
           
-  lint-ext: 
+  lint_web: 
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
@@ -27,9 +27,9 @@ jobs:
       with:
         node-version: '16.x'
     - run: yarn install --frozen-lockfile
-    - run: yarn lint:ext
+    - run: yarn lint:web
 
-  build:
+  build_web:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
@@ -40,14 +40,14 @@ jobs:
         node-version: '16.x'
     - run: yarn install --frozen-lockfile
     - name: Build application web extension
-      run: yarn build:ext
+      run: yarn build:web
     # - uses: actions/upload-artifact@v3
     #   with:
     #     name: web-extension
     #     path: packages/web-extension/dist
 
-  test:
-    needs: [lint-ext, build]
+  test_web:
+    needs: [lint_web, build]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -63,10 +63,10 @@ jobs:
       #     name: web-extension
       #     path: build/
       - name: Test
-        run: yarn lint:ext
+        run: yarn lint:web
   
-  deploy:
-    needs: [test]
+  deploy_web:
+    needs: [test_web]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
