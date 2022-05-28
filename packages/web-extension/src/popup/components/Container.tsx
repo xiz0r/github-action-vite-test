@@ -1,11 +1,11 @@
 import React from 'react'
-import {Box, CssBaseline, Container } from '@mui/material'
+import { Box, CssBaseline, Container } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { grey } from '@mui/material/colors'
 
 interface Props {
-    children: React.ReactNode
-  }
+  children: React.ReactNode
+}
 
 const darkTheme = createTheme({
   palette: {
@@ -24,7 +24,6 @@ const darkTheme = createTheme({
 })
 
 function GContainer ({ children }: Props) {
-
   return (
     <ThemeProvider theme={darkTheme}>
       <Container component='main' disableGutters={false}>
@@ -36,7 +35,7 @@ function GContainer ({ children }: Props) {
             flexDirection: 'column'
           }}
         >
-        {children}
+          {children}
         </Box>
       </Container>
     </ThemeProvider>

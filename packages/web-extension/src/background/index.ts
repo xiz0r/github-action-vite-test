@@ -1,3 +1,3 @@
-import background from './background';
+import background from './background'
 
 background()

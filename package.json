@@ -14,6 +14,7 @@
     "lint": "yarn workspace greenit-web-app lint",
     "dev:ext:firefox": "yarn workspace greenit-extension dev:firefox",
     "dev:ext": "yarn workspace greenit-extension dev",
-    "build:ext": "yarn workspace greenit-extension build"
+    "build:ext": "yarn workspace greenit-extension build",
+    "lint:ext": "yarn workspace greenit-extension lint"
   }
 }

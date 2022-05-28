@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, ReactElement } from 'react'
 import { browser } from 'webextension-polyfill-ts'
 const image = browser.runtime.getURL('/assets/icons/icon48.png')
 
-function App() {
+function App (): ReactElement {
   const matchUrl = 'opensea.io/assets'
   const [isExtensionEnabled, setIsExtensionEnabled] = React.useState(false)
   // execute handle history on mount
   useEffect(() => {
     browser.runtime.onMessage.addListener(handleHistoryChanged)
 
-    if(document.location.href.includes(matchUrl)) {
+    if (document.location.href.includes(matchUrl)) {
       setIsExtensionEnabled(true)
       console.log('extension enabled')
     }
@@ -19,21 +19,20 @@ function App() {
     }
   }, [])
 
-
-  function handleHistoryChanged(message: any) {
+  function handleHistoryChanged (message: {type: string, payload: {url: string}}): void {
     switch (message.type) {
       case 'HISTORY_STATE_UPDATE': {
-        if(message.payload.url.includes(matchUrl)) {
+        if (message.payload.url.includes(matchUrl)) {
           setIsExtensionEnabled(true)
         } else {
           setIsExtensionEnabled(false)
-        } 
+        }
       }
     }
   }
 
-  if(!isExtensionEnabled) {
-    return <div></div>
+  if (!isExtensionEnabled) {
+    return <div />
   }
 
   return (
